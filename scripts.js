@@ -1,8 +1,5 @@
-var squares = 16**2;
-squares.style.margin = "0";
-squares.style.padding = "0";
-squares.style.color = "ivory";
-
+var squares = 16;
+totSquares = squares**2;
 
 var divSq = document.createElement("div");
 divSq.style.width = 
@@ -28,8 +25,8 @@ function createSquares(dimensions) {
     document.getElementById("board").appendChild(div1);
 }
 
-function setSquares () {
-    for (let i = 0; i < squares; i++) {
+function setSquares (totSquares) {
+    for (let i = 0; i < totSquares; i++) {
         createSquares(squares);
     }
 }
