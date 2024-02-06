@@ -15,8 +15,8 @@ body {
     .gameBoard {
         display: flex;
         flex-direction: row;
-        Height: 400px;
-        width: 1000px;
+        Height: 50vh;
+        width: 50vh;
         background-color:ivory;
         flex-wrap: wrap;
     }

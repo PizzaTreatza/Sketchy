@@ -1,4 +1,4 @@
-let squares = 16;
+let squares = 100;
 totSquares = squares**2;
 sqDimensions = 100/squares;
 
