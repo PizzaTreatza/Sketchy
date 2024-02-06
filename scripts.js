@@ -35,9 +35,9 @@ function createSquares(dimensions) {
 
 function setSquares () {
     for (let i = 0; i < totSquares; i++) {
-        createSquares(16);
+        createSquares(sqDimensions);
     }
 }
 
 setSquares(sqDimensions);
-console.log(squares);
+console.log(sqDimensions);

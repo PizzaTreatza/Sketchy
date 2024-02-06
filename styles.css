@@ -7,8 +7,6 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     font-family: Arial, Helvetica, sans-serif;
-    width: 100vw;
-    height: 100vh;
     background-color: rgba(0, 128, 128, 0.094);
     margin: auto;
     justify-content: space-between;
@@ -16,10 +14,9 @@ body {
 
     .gameBoard {
         display: flex;
+        flex-direction: row;
         Height: 400px;
         width: 1000px;
         background-color:ivory;
-        justify-content:center;
-        align-items: center;
         flex-wrap: wrap;
     }
