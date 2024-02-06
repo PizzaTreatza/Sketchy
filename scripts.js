@@ -1,7 +1,7 @@
-var squares = 16;
+let squares = 16;
 totSquares = squares**2;
 
-var divSq = document.createElement("div");
+let divSq = document.createElement("div");
 divSq.style.width = 
 
 function getSquares() {
@@ -19,14 +19,23 @@ function getSquares() {
 
 function createSquares(dimensions) {
     let div1 = document.createElement("div");
-    div1.style.width = '${dimensions}%';
-    div1.style.height = '${dimensions}%';
+    div1.style.width = '16%';
+    div1.style.height = '16%';
+    div1.style.margin = "0";
+    div1.style.border = "0";
+    div1.style.display = "flex";
+    div1.style.background = "red";
+    div1.className = "checkers";
+    div1.addEventListener('mouseover', function(e) {e.target.style.background = "black"});
+    
 
     document.getElementById("board").appendChild(div1);
 }
 
-function setSquares (totSquares) {
+function setSquares () {
     for (let i = 0; i < totSquares; i++) {
-        createSquares(squares);
+        createSquares(16);
     }
 }
+
+setSquares();
