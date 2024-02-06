@@ -16,8 +16,8 @@ body {
 
     .gameBoard {
         display: flex;
-        Height: 85vh;
-        width: 100vw;
+        Height: 400px;
+        width: 1000px;
         background-color:ivory;
         justify-content:center;
         align-items: center;

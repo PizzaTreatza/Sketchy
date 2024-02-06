@@ -1,5 +1,6 @@
 let squares = 16;
 totSquares = squares**2;
+sqDimensions = 100/squares;
 
 let divSq = document.createElement("div");
 divSq.style.width = 
@@ -19,8 +20,8 @@ function getSquares() {
 
 function createSquares(dimensions) {
     let div1 = document.createElement("div");
-    div1.style.width = '16%';
-    div1.style.height = '16%';
+    div1.style.width = `${dimensions}%`;
+    div1.style.height = `${dimensions}%`;
     div1.style.margin = "0";
     div1.style.border = "0";
     div1.style.display = "flex";
@@ -38,4 +39,5 @@ function setSquares () {
     }
 }
 
-setSquares();
+setSquares(sqDimensions);
+console.log(squares);
