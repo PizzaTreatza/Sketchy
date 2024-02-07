@@ -22,7 +22,7 @@ function createSquares(dimensions) {
     div1.style.margin = "0";
     div1.style.border = "0";
     div1.style.display = "flex";
-    div1.style.background = "red";
+    div1.style.background = "ivory";
     div1.className = "checkers";
     div1.addEventListener('mouseover', function(e) {e.target.style.background = "black"});
     
@@ -43,7 +43,7 @@ const resetBtn = document.querySelector('.resetBoard');
 resetBtn.addEventListener('click', function(e) {
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
-        checkers[i].style.background = "red";
+        checkers[i].style.background = "ivory";
     }
 });
 

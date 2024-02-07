@@ -13,6 +13,7 @@ body {
     margin: auto;
     justify-content:space-between;
     align-items: center;
+    background-color: blanchedalmond;
 }
     .header {
         height: 3vh;
@@ -32,6 +33,16 @@ body {
         justify-content: space-between;
     }
 
+button {
+    background-color: rgb(210, 101, 101);
+    color: white;
+    box-shadow: -4px -4px 6px #000021 inset;
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    margin: 2vh;
+}
+
     .gameBoard {
         display: flex;
         flex-direction: row;
@@ -40,4 +51,6 @@ body {
         margin-bottom: 2vh;
         background-color:ivory;
         flex-wrap: wrap;
+        border:#000021;
+        border-style: solid;
     }
