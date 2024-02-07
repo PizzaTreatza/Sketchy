@@ -44,9 +44,6 @@ function randomColor() {
     return 'rgb(' +color.join(',') + ')';
 }
 
-setSquares(startSquares, sqDimensions, "black");
-console.log(sqDimensions);
-
 const resetBtn = document.querySelector('.resetBoard');
 resetBtn.addEventListener('click', function(e) {
     var checkers = document.getElementsByClassName('checkers');
@@ -63,12 +60,29 @@ setBtn.addEventListener('click', function(e) {
     promptDimensions = 100/promptSquares;
     document.querySelectorAll('.checkers').forEach(e => e.remove());
     setSquares(totPrompt, promptDimensions, "black");
+    blackBtn.style.boxShadow = "4px 4px 6px #29da6a";
+    rainbowBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
 });
 
-const rainbowBtn = document.querySelector('.colorful');
+const rainbowBtn = document.querySelector('.rainbow');
 const blackBtn = document.querySelector('.original');
 rainbowBtn.addEventListener('click', function(e) {
     rainbowBtn.style.boxShadow = "4px 4px 6px #29da6a";
+    blackBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
+    var checkers = document.getElementsByClassName('checkers');
+    for (var i = 0; i < checkers.length; i++) {
+        checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = randomColor()});
+    }
+});
+
+blackBtn.addEventListener('click', function(e) {
+    blackBtn.style.boxShadow = "4px 4px 6px #29da6a";
+    rainbowBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
+    var checkers = document.getElementsByClassName('checkers');
+    for (var i = 0; i < checkers.length; i++) {
+        checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = "black"});
+    }
 });
 
 
+setSquares(startSquares, sqDimensions, "black");
