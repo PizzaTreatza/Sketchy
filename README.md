@@ -1,2 +1,2 @@
 # Sketchy
-An etcha-a-sketch-esque project created as part of The Odin Project
+An etch-a-sketch-esque project created as part of The Odin Project
