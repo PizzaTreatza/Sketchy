@@ -28,7 +28,7 @@ body {
         }
     
     .buttonBox {
-        width: 25vw;
+        width: 50vw;
         display: flex;
         justify-content: space-between;
     }
@@ -42,6 +42,13 @@ button {
     border-radius: 10px;
     margin: 2vh;
 }
+    .rainbow {
+        background-color: teal;
+    }
+    .original {
+        background-color: black;
+        box-shadow: 4px 4px 6px #29da6a;
+    }
 
     .gameBoard {
         display: flex;

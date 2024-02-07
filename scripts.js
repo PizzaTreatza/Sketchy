@@ -15,7 +15,7 @@ function getSquares() {
     return numIn;
 }
 
-function createSquares(dimensions) {
+function createSquares(dimensions, color) {
     let div1 = document.createElement("div");
     div1.style.width = `${dimensions}%`;
     div1.style.height = `${dimensions}%`;
@@ -24,19 +24,27 @@ function createSquares(dimensions) {
     div1.style.display = "flex";
     div1.style.background = "ivory";
     div1.className = "checkers";
-    div1.addEventListener('mouseover', function(e) {e.target.style.background = "black"});
+    div1.addEventListener('mouseover', function(e) {e.target.style.background = color});
     
 
     document.getElementById("board").appendChild(div1);
 }
 
-function setSquares (numSquares, dimensions) {
+function setSquares (numSquares, dimensions, color) {
     for (let i = 0; i < numSquares; i++) {
-        createSquares(dimensions);
+        createSquares(dimensions, color);
     }
 }
 
-setSquares(startSquares, sqDimensions);
+function randomColor() {
+    let color = [];
+    for (var i = 0; i < 3; i++) {
+        color.push(Math.floor(Math.random() * 256));
+    }
+    return 'rgb(' +color.join(',') + ')';
+}
+
+setSquares(startSquares, sqDimensions, "black");
 console.log(sqDimensions);
 
 const resetBtn = document.querySelector('.resetBoard');
@@ -54,5 +62,13 @@ setBtn.addEventListener('click', function(e) {
     totPrompt = promptSquares**2;
     promptDimensions = 100/promptSquares;
     document.querySelectorAll('.checkers').forEach(e => e.remove());
-    setSquares(totPrompt, promptDimensions);
+    setSquares(totPrompt, promptDimensions, "black");
 });
+
+const rainbowBtn = document.querySelector('.colorful');
+const blackBtn = document.querySelector('.original');
+rainbowBtn.addEventListener('click', function(e) {
+    rainbowBtn.style.boxShadow = "4px 4px 6px #29da6a";
+});
+
+
