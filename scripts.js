@@ -1,9 +1,6 @@
 let squares = 16;
-totSquares = squares**2;
-sqDimensions = 100/squares;
-
-let divSq = document.createElement("div");
-divSq.style.width = 
+let startSquares = squares**2;
+let sqDimensions = 100/squares;
 
 function getSquares() {
     var numIn = parseInt(prompt("Choose a board size between 1 & 100",""), 10);
@@ -15,7 +12,7 @@ function getSquares() {
         alert("Please choose a number between 1 & 100")
         getSquares();
     }
-        return numIn;
+    return numIn;
 }
 
 function createSquares(dimensions) {
@@ -33,19 +30,29 @@ function createSquares(dimensions) {
     document.getElementById("board").appendChild(div1);
 }
 
-function setSquares () {
-    for (let i = 0; i < totSquares; i++) {
-        createSquares(sqDimensions);
+function setSquares (numSquares, dimensions) {
+    for (let i = 0; i < numSquares; i++) {
+        createSquares(dimensions);
     }
 }
 
-setSquares(sqDimensions);
+setSquares(startSquares, sqDimensions);
 console.log(sqDimensions);
 
 const resetBtn = document.querySelector('.resetBoard');
 resetBtn.addEventListener('click', function(e) {
-    let checkers = document.getElementsByClassName('checkers');
+    var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
         checkers[i].style.background = "red";
     }
+});
+
+const setBtn = document.querySelector('.setBoard');
+setBtn.addEventListener('click', function(e) {
+
+    promptSquares = getSquares();
+    totPrompt = promptSquares**2;
+    promptDimensions = 100/promptSquares;
+    document.querySelectorAll('.checkers').forEach(e => e.remove());
+    setSquares(totPrompt, promptDimensions);
 });
