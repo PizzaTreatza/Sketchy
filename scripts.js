@@ -1,4 +1,4 @@
-let squares = 100;
+let squares = 16;
 totSquares = squares**2;
 sqDimensions = 100/squares;
 
@@ -41,3 +41,11 @@ function setSquares () {
 
 setSquares(sqDimensions);
 console.log(sqDimensions);
+
+const resetBtn = document.querySelector('.resetBoard');
+resetBtn.addEventListener('click', function(e) {
+    let checkers = document.getElementsByClassName('checkers');
+    for (var i = 0; i < checkers.length; i++) {
+        checkers[i].style.background = "red";
+    }
+});
