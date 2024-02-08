@@ -50,8 +50,17 @@ function randomColor() {
 const resetBtn = document.querySelector('.resetBoard');
 resetBtn.addEventListener('click', function(e) {
     var checkers = document.getElementsByClassName('checkers');
+    var fadeBtnCheck = document.querySelector('.fade');
+    var fadeStyle = getComputedStyle(fadeBtnCheck).getPropertyValue('box-shadow');
     for (var i = 0; i < checkers.length; i++) {
-        checkers[i].style.background = "ivory";
+        if (fadeStyle === "rgb(41, 218, 106) 4px 4px 6px 0px") {
+            checkers[i].style.opacity = 0;
+            checkers [i].style.background = 'black';
+        }
+        else {
+            checkers[i].style.opacity = 1;
+            checkers[i].style.background = "ivory";
+        }
     }
 });
 
