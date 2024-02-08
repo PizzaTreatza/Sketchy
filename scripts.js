@@ -98,7 +98,8 @@ greyBtn.addEventListener('click', function(e) {
         checkers[i].style.opacity = 0;
         checkers[i].style.background = "black";
         checkers[i].addEventListener('mouseover', function(e)  {
-            var opNow = e.target.getComputedStyle(target).getPropertyValue('opacity');
+            var target = e.target;
+            var opNow = parseFloat(getComputedStyle(target).getPropertyValue('opacity'));
             var newOp = opNow + 0.1;
             newOp = Math.min(newOp, 1);
             e.target.style.opacity = newOp;
