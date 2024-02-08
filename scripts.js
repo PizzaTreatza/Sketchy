@@ -66,11 +66,14 @@ setBtn.addEventListener('click', function(e) {
 
 const rainbowBtn = document.querySelector('.rainbow');
 const blackBtn = document.querySelector('.original');
+const greyBtn = document.querySelector('.fade');
 rainbowBtn.addEventListener('click', function(e) {
     rainbowBtn.style.boxShadow = "4px 4px 6px #29da6a";
     blackBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
+    greyBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
+        checkers[i].style.opacity = 1;
         checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = randomColor()});
     }
 });
@@ -78,9 +81,28 @@ rainbowBtn.addEventListener('click', function(e) {
 blackBtn.addEventListener('click', function(e) {
     blackBtn.style.boxShadow = "4px 4px 6px #29da6a";
     rainbowBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
+    greyBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
+        checkers[i].style.opacity = 1;
         checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = "black"});
+    }
+});
+
+greyBtn.addEventListener('click', function(e) {
+    greyBtn.style.boxShadow = "4px 4px 6px #29da6a";
+    rainbowBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
+    blackBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
+    var checkers = document.getElementsByClassName('checkers');
+    for (var i = 0; i < checkers.length; i++) {
+        checkers[i].style.opacity = 0;
+        checkers[i].style.background = "black";
+        checkers[i].addEventListener('mouseover', function(e)  {
+            var opNow = e.target.getComputedStyle(target).getPropertyValue('opacity');
+            var newOp = opNow + 0.1;
+            newOp = Math.min(newOp, 1);
+            e.target.style.opacity = newOp;
+        });
     }
 });
 

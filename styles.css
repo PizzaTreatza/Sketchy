@@ -49,7 +49,9 @@ button {
         background-color: black;
         box-shadow: 4px 4px 6px #29da6a;
     }
-
+    .fade {
+        background-color: gray;
+    }
     .gameBoard {
         display: flex;
         flex-direction: row;
