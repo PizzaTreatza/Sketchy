@@ -76,8 +76,16 @@ rainbowBtn.addEventListener('click', function(e) {
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
         checkers[i].replaceWith(checkers[i].cloneNode(true));
-        checkers[i].style.opacity = 1;
-        checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = randomColor()});
+        var target = e.target;
+        var opNow = parseFloat(getComputedStyle(target).getPropertyValue('opacity'));
+        if (opNow = 0) {
+            checkers[i].style.opacity = 1;
+            checkers[i].style.background = 'ivory';
+        }
+        checkers[i].addEventListener('mouseover', function(e)  {
+            e.target.style.background = randomColor();
+            e.target.style.opacity = 1;
+        });
     }
 });
 
@@ -88,8 +96,16 @@ blackBtn.addEventListener('click', function(e) {
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
         checkers[i].replaceWith(checkers[i].cloneNode(true));
-        checkers[i].style.opacity = 1;
-        checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = "black"});
+        var target = e.target;
+        var opNow = parseFloat(getComputedStyle(target).getPropertyValue('opacity'));
+        if (opNow = 0) {
+            checkers[i].style.opacity = 1;
+            checkers[i].style.background = 'ivory';
+        }
+        checkers[i].addEventListener('mouseover', function(e)  {
+            e.target.style.background = "black";
+            e.target.style.opacity = 1;
+    });
     }
 });
 
@@ -99,9 +115,12 @@ greyBtn.addEventListener('click', function(e) {
     blackBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
+        var checkerStyle = getComputedStyle(checkers[i]).getPropertyValue('background');
         checkers[i].replaceWith(checkers[i].cloneNode(true));
-        checkers[i].style.opacity = 0;
-        checkers[i].style.background = "black";
+        if (checkerStyle === "rgb(255, 255, 240) none repeat scroll 0% 0% / auto padding-box border-box") {
+            checkers[i].style.opacity = 0;
+            checkers[i].style.background = 'black';
+        }
         checkers[i].addEventListener('mouseover', function(e)  {
             var target = e.target;
             var opNow = parseFloat(getComputedStyle(target).getPropertyValue('opacity'));
