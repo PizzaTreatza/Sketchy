@@ -1,7 +1,9 @@
+//Initial stats
 let squares = 16;
 let startSquares = squares**2;
 let sqDimensions = 100/squares;
 
+//Functions
 function getSquares() {
     var numIn = parseInt(prompt("Choose a board size between 1 & 100",""), 10);
     if (isNaN(numIn)) { 
@@ -44,6 +46,7 @@ function randomColor() {
     return 'rgb(' +color.join(',') + ')';
 }
 
+//buttons
 const resetBtn = document.querySelector('.resetBoard');
 resetBtn.addEventListener('click', function(e) {
     var checkers = document.getElementsByClassName('checkers');
@@ -54,7 +57,6 @@ resetBtn.addEventListener('click', function(e) {
 
 const setBtn = document.querySelector('.setBoard');
 setBtn.addEventListener('click', function(e) {
-
     promptSquares = getSquares();
     totPrompt = promptSquares**2;
     promptDimensions = 100/promptSquares;
@@ -73,6 +75,7 @@ rainbowBtn.addEventListener('click', function(e) {
     greyBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
+        checkers[i].replaceWith(checkers[i].cloneNode(true));
         checkers[i].style.opacity = 1;
         checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = randomColor()});
     }
@@ -84,6 +87,7 @@ blackBtn.addEventListener('click', function(e) {
     greyBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
+        checkers[i].replaceWith(checkers[i].cloneNode(true));
         checkers[i].style.opacity = 1;
         checkers[i].addEventListener('mouseover', function(e)  {e.target.style.background = "black"});
     }
@@ -95,6 +99,7 @@ greyBtn.addEventListener('click', function(e) {
     blackBtn.style.boxShadow = "-4px -4px 6px #000021 inset";
     var checkers = document.getElementsByClassName('checkers');
     for (var i = 0; i < checkers.length; i++) {
+        checkers[i].replaceWith(checkers[i].cloneNode(true));
         checkers[i].style.opacity = 0;
         checkers[i].style.background = "black";
         checkers[i].addEventListener('mouseover', function(e)  {
@@ -107,5 +112,5 @@ greyBtn.addEventListener('click', function(e) {
     }
 });
 
-
+//Initialize board
 setSquares(startSquares, sqDimensions, "black");
